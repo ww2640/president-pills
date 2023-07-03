@@ -43,24 +43,25 @@ func _input(event):
 func next_script():
 	current_dialogue_id += 1
 	
-	if current_dialogue_id >= len(dialogue):
+	if current_dialogue_id >= len(dialogue[0]):
 		d_active = false
 		background.visible = false
 		return
 	
-	name_label.text = dialogue[current_dialogue_id]['name']
+	name_label.text = dialogue[0][current_dialogue_id]['name']
 	show_text_one_by_one()
 
 func show_text_one_by_one():
 	var current_text_index = 0
 	adding_text = true
 	text_label.text = ""
-	while len(text_label.text) < len(dialogue[current_dialogue_id]['text']):
-		text_label.text += dialogue[current_dialogue_id]['text'][current_text_index]
+	var current_dialogue_block = dialogue[0]
+	while len(text_label.text) < len(current_dialogue_block[current_dialogue_id]['text']):
+		text_label.text += current_dialogue_block[current_dialogue_id]['text'][current_text_index]
 		await get_tree().create_timer(add_character_time).timeout
 		current_text_index += 1
 	adding_text = false
 
 func show_all_text():
-	text_label.text = dialogue[current_dialogue_id]['text']
+	text_label.text = dialogue[0][current_dialogue_id]['text']
 	adding_text = false

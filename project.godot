@@ -16,6 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameManager="*res://Scripts/GameManager.gd"
 PillBehavior="*res://Scripts/Pill_Behavior.gd"
 
 [display]

@@ -9,10 +9,11 @@ func _ready():
 	instantiate_pills("Default", 2, initial_position, [PillBehavior.SIDE_EFFECT.aggressive])
 
 # Called when the node enters the scene tree for the first time.
-func instantiate_pills(_name: String, _cure_point: int, _position, side_effect = []):
+func instantiate_pills(_name: String, _health_point: int, _mental_point: int, _position, side_effect = []):
 	var new_pill = pills_pf.instantiate()
 	new_pill.name = _name
-	new_pill.cure_point = _cure_point
+	new_pill.health_point = _health_point
+	new_pill.mental_point = _mental_point
 	for effect in side_effect:
 		new_pill.side_effects.append(effect)
 	new_pill.global_position = _position

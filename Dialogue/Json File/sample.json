@@ -1,6 +1,8 @@
 [
-	{"name": "President", "text": "Hi, How are you?"},
-	{"name": "President", "text": "I am your president and future boss!"},
-	{"name": "President", "text": "You are my doctor!"},
-	{"name": "Doctor", "text": "Yes! I am very excited to work on your health!"}
+	[
+		{"name": "President", "text": "Hi, How are you?"},
+		{"name": "President", "text": "I am your president and future boss!"},
+		{"name": "President", "text": "You are my doctor!"},
+		{"name": "You", "text": "Yes! I am very excited to work on your health!"}
+	]
 ]

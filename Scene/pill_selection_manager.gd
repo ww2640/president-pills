@@ -8,10 +8,15 @@ func _ready():
 func add_selected_pill(new_pill):
 	var pill = new_pill.duplicate()
 	selected_pills.append(pill)
+	resolve_pill_effects(pill)
 	print(selected_pills.size())
 
 
 func _on_button_pressed():
-	for pill in selected_pills:
-		print(pill.get_side_effects())
-		get_node("Label").text = pill.name + "\n"
+	get_node("Label").text = str(GameManager.p_health)
+		
+func resolve_pill_effects(pill):
+	GameManager.p_health += pill.health_point
+	GameManager.p_mental += pill.mental_point
+	for effect in pill.side_effects:
+		GameManager.p_debuffs.append(effect)
