@@ -46,6 +46,7 @@ animations = [{
 size = Vector2(20, 30)
 
 [node name="Pill" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_kxn68")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

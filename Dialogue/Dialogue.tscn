@@ -15,24 +15,23 @@ add_character_time = 0.03
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 452.0
-offset_right = 1131.0
+offset_top = 462.0
+offset_right = 1279.0
 offset_bottom = 714.0
 
 [node name="NameLabel" type="RichTextLabel" parent="Background"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 25.0
+offset_left = 120.0
 offset_top = 23.0
-offset_right = 146.0
+offset_right = 241.0
 offset_bottom = 53.0
 text = "Name"
 
 [node name="TextLabel" type="RichTextLabel" parent="Background"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 26.0
+offset_left = 118.0
 offset_top = 67.0
 offset_right = 920.0
 offset_bottom = 239.0

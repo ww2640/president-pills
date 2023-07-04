@@ -6,7 +6,8 @@ extends Node2D
 @export var instantiate_gap_x = 100
 
 func _ready():
-	instantiate_pills("Default", 2, initial_position, [PillBehavior.SIDE_EFFECT.aggressive])
+	#instantiate_pills("Default", 2, -2, initial_position, [PillBehavior.SIDE_EFFECT.aggressive])
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func instantiate_pills(_name: String, _health_point: int, _mental_point: int, _position, side_effect = []):
@@ -17,4 +18,8 @@ func instantiate_pills(_name: String, _health_point: int, _mental_point: int, _p
 	for effect in side_effect:
 		new_pill.side_effects.append(effect)
 	new_pill.global_position = _position
-	unselected_pills_parent.add_child(new_pill)
+	if unselected_pills_parent != null:
+		unselected_pills_parent.add_child(new_pill)
+	else:
+		add_child(new_pill)
+	return new_pill

@@ -7,8 +7,12 @@ extends Control
 @onready var name_label = $Background/NameLabel
 @onready var text_label = $Background/TextLabel
 
+signal On_Interlude(interlude_id: int)
+
 var dialogue = []
+var current_block_id = 0
 var current_dialogue_id = 0
+var current_interlude_id = -1
 var d_active = false
 var adding_text = false
 
@@ -40,28 +44,45 @@ func _input(event):
 		else:
 			show_all_text()
 		
+func stop_dialogue():
+	if(current_block_id) >= len(dialogue):
+		return true
+	if current_dialogue_id >= len(dialogue[current_block_id]):
+		d_active = false
+		background.visible = false
+		current_interlude_id += 1
+		On_Interlude.emit(current_interlude_id)
+		return true
+	else:
+		return false
+
+func continue_dialogue():
+	d_active = true
+	background.visible = true
+	current_block_id += 1
+	current_dialogue_id = -1
+	next_script()
+
 func next_script():
 	current_dialogue_id += 1
 	
-	if current_dialogue_id >= len(dialogue[0]):
-		d_active = false
-		background.visible = false
+	if stop_dialogue():
 		return
 	
-	name_label.text = dialogue[0][current_dialogue_id]['name']
+	name_label.text = dialogue[current_block_id][current_dialogue_id]['name']
 	show_text_one_by_one()
 
 func show_text_one_by_one():
 	var current_text_index = 0
 	adding_text = true
 	text_label.text = ""
-	var current_dialogue_block = dialogue[0]
-	while len(text_label.text) < len(current_dialogue_block[current_dialogue_id]['text']):
-		text_label.text += current_dialogue_block[current_dialogue_id]['text'][current_text_index]
+	var dialogue_block = dialogue[current_block_id]
+	while len(text_label.text) < len(dialogue_block[current_dialogue_id]['text']):
+		text_label.text += dialogue_block[current_dialogue_id]['text'][current_text_index]
 		await get_tree().create_timer(add_character_time).timeout
 		current_text_index += 1
 	adding_text = false
 
 func show_all_text():
-	text_label.text = dialogue[0][current_dialogue_id]['text']
+	text_label.text = dialogue[current_block_id][current_dialogue_id]['text']
 	adding_text = false

@@ -1,0 +1,14 @@
+[
+	[
+		{"name": "HR", "text": "Welcome, we are happy to have you as the chief medical advisor for our Mr. President"},
+		{"name": "HR", "text": "Let's begin reviewing some of the basic works you will encounter each day"},
+	],
+	[
+		{"name": "HR", "text": "This here is a medicine called Tolazine"},
+		{"name": "HR", "text": "It has some curing effects, but can also make the patient aggressive"},
+		{"name": "HR", "text": "Try click it and put it in the tray" }
+	],
+	[
+		{"name": "HR", "text": "Good job, this is how you deliver pills to the president!"}
+	]
+]

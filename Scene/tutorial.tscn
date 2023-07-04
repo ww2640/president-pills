@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjyw5ur8homm6"]
+
+[ext_resource type="PackedScene" uid="uid://1u7dc8dve011" path="res://Dialogue/Dialogue.tscn" id="1_bbo4c"]
+[ext_resource type="Script" path="res://Scene/Tutorial.gd" id="1_vh1r7"]
+[ext_resource type="PackedScene" uid="uid://dw7t7w13h2gj2" path="res://Scene/pills_spawner.tscn" id="3_uwqbp"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_vh1r7")
+
+[node name="Dialogue" parent="." instance=ExtResource("1_bbo4c")]
+json_file = "res://Dialogue/Json File/tutorial_dialogue.json"
+
+[node name="Pills_Spawner" parent="." instance=ExtResource("3_uwqbp")]

@@ -5,6 +5,7 @@ extends Node2D
 @export var mental_point: int
 @export var side_effects: Array[PillBehavior.SIDE_EFFECT]
 
+var can_interact = true
 
 #func get_side_effects():
 #	return side_effects
@@ -17,10 +18,16 @@ extends Node2D
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
+	if !can_interact:
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("I've been clicked")
 		pill_select_anim()
-		get_node("../../").add_selected_pill(self)
+		var grandparent_node = get_node("../..")
+		if grandparent_node.name == "Tutorial":
+			grandparent_node.continue_dialogue()
+		else:	
+			grandparent_node.add_selected_pill(self)
 
 func pill_select_anim():
 	var tween = get_tree().create_tween()
