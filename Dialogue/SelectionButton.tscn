@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy8w6n7d070ku"]
+
+[ext_resource type="Script" path="res://Dialogue/selection_button_manager.gd" id="1_rwg4u"]
+
+[node name="SelectionButton2" type="Button"]
+offset_right = 292.0
+offset_bottom = 39.0
+text = "Sample"
+script = ExtResource("1_rwg4u")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
