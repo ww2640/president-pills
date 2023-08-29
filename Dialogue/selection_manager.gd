@@ -31,10 +31,12 @@ func set_up_buttons():
 		selection_button_instance.position.y += i * 60
 		selection_button_instance.set_button_text(selection[0][i]["text"])
 		selection_button_instance.set_id(i)
+		selection_button_instance.set_switch_to_id(selection[0][i]["switch_to"])
 		selection_button_instance.connect("selection_button_pressed", selection_button_pressed)
 
-func selection_button_pressed(button_id):
+func selection_button_pressed(button_id, switch_to_id):
 	visible = false
 	print("Pressed: " + str(button_id))
+	print("Switch to:" + str(switch_to_id))
 	button_pressed.emit(button_id)
 	
