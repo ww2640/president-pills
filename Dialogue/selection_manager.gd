@@ -9,6 +9,8 @@ extends Control
 var selection = []
 var total_selection_num = 0
 
+signal button_pressed(button_id: int)
+
 func _ready():
 	selection = load_selection()
 	total_selection_num = len(selection[0])
@@ -34,3 +36,5 @@ func set_up_buttons():
 func selection_button_pressed(button_id):
 	visible = false
 	print("Pressed: " + str(button_id))
+	button_pressed.emit(button_id)
+	

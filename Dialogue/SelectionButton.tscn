@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://btx7ib7sdfe1b"]
+[gd_scene load_steps=2 format=3 uid="uid://7ug06caqglcl"]
 
 [ext_resource type="Script" path="res://Dialogue/selection_button_manager.gd" id="1_rwg4u"]
 
