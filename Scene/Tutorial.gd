@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var pill_spawner = $Pills_Spawner
 @onready var selection = $Selection
+@onready var dialogue = $Dialogue
 
 var tutorial_pill
 var interlude_id
@@ -26,15 +27,7 @@ func resolve_interlude(id):
 		2:
 			selection.visible = true
 func continue_dialogue():
-	$Dialogue.continue_dialogue()
+	dialogue.continue_dialogue()
 
-func selection_button_pressed(button_id):
-	match interlude_id:
-		2:
-			match button_id:
-				0:
-					print("xing")
-				1:
-					print("buxing")
-				2:
-					print("bushi buxing")
+func selection_button_pressed(button_id, switch_to_id):
+	dialogue.jump_to_block(switch_to_id)

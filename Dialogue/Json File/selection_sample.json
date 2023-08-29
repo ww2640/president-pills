@@ -2,6 +2,6 @@
 	[
 		{"text": "可以", "switch_to": 3},
 		{"text": "不行", "switch_to": 4},
-		{"text": "不是不行", "switch_to": 4},
+		{"text": "不是不行", "switch_to": 5},
 	]
 ]

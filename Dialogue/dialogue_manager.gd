@@ -63,6 +63,13 @@ func continue_dialogue():
 	current_dialogue_id = -1
 	next_script()
 
+func jump_to_block(switch_to_id):
+	d_active = true
+	background.visible = true
+	current_block_id = switch_to_id
+	current_dialogue_id = -1
+	next_script()
+
 func next_script():
 	current_dialogue_id += 1
 	
