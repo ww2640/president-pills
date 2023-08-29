@@ -27,9 +27,10 @@ func set_up_buttons():
 		var selection_button_instance = selection_button.instantiate()
 		selection_button_panel.add_child(selection_button_instance)
 		selection_button_instance.position.y += i * 60
-		selection_button_instance.set_text(selection[0][i]["text"])
+		selection_button_instance.set_button_text(selection[0][i]["text"])
 		selection_button_instance.set_id(i)
 		selection_button_instance.connect("selection_button_pressed", selection_button_pressed)
 
 func selection_button_pressed(button_id):
+	visible = false
 	print("Pressed: " + str(button_id))

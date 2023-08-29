@@ -1,11 +1,11 @@
-extends Control
+extends Button
 
 signal selection_button_pressed(pressed_button_id: int)
 
 var button_id = -1
 
-func set_text(new_text):
-	self.text = new_text
+func set_button_text(new_text):
+	text = new_text
 
 func set_id(new_id):
 	button_id = new_id
